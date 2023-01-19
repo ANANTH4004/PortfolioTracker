@@ -1,0 +1,29 @@
+
+.login-form{
+    font-weight: 500;
+    font-family:Verdana, Geneva;
+    margin: 50px 0 0 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:fit-content;
+    background-color: aqua;
+//padding-block: 10%;
+}
+
+.form-group{
+    display: grid;
+    padding-block: 8%;
+    width: 150%;
+   
+}
+@media (max-width: 600px) {
+    .login-form {
+      margin: 40px 0 0 0;
+    }
+    .form-group {
+      padding-block: 4%;
+      width: 100%;
+    }
+  }
+  

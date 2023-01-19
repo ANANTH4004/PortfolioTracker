@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, Validators, AbstractControl } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 
 
@@ -9,14 +9,27 @@ import { FormBuilder } from '@angular/forms';
   styleUrls: ['./sign-in.component.scss']
 })
 export class SignInComponent {
-  constructor(private fb: FormBuilder) {}
-  formGroup = this.fb.group({
+ 
+  submitted = false;
+  constructor(private fb:FormBuilder){}
+  loginForm = this.fb.group({
     email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required, Validators.minLength(8)]]
-});
-
+    password: [
+      '',
+      [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.maxLength(20)
+      ]
+    ]
+  });
+  get f(): { [key: string]: AbstractControl } {
+    return this.loginForm.controls;
+  }
  onSubmit()
  {
+  this.submitted = true;
   console.log('Message Received Succesdfully')
+  console.log(this.loginForm.value)
  }
 }
