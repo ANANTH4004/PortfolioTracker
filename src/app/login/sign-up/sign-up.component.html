@@ -1,0 +1,38 @@
+
+<div class="container">
+    <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="userName">Username</label>
+        <input type="text" class="form-control" id="userName" formControlName="userName" [ngClass]="{'is-invalid': c['userName'].touched && c['userName'].errors}">
+        <div *ngIf="c['userName'].touched && c['userName'].errors" class="invalid-feedback">
+          <div *ngIf="c['userName'].errors['required']">Username is required</div>
+          <div *ngIf="c['userName'].errors['minlength']">Username should be at least 5 characters</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{'is-invalid': c['password'].touched && c['password'].errors}">
+        <div *ngIf="c['password'].touched && c['password'].errors" class="invalid-feedback">
+          <div *ngIf="c['password'].errors['required']">Password is required</div>
+          <div *ngIf="c['password'].errors['pattern']">Password should contain at least 1 letter, 1 number, and 1 special character</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="{'is-invalid': c['email'].touched && c['email'].errors}">
+        <div *ngIf="c['email'].touched && c['email'].errors" class="invalid-feedback">
+          <div *ngIf="c['email'].errors['required']">Email is required</div>
+          <div *ngIf="c['email'].errors['email']">Invalid email address</div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="mobileNo">Mobile Number</label>
+        <input type="text" class="form-control" id="mobileNo" formControlName="mobileNo" [ngClass]="{'is-invalid': c['mobileNo'].touched && c['mobileNo'].errors}">
+        <div *ngIf="c['mobileNo'].touched && c['mobileNo'].errors" class="invalid-feedback">
+          <div *ngIf="c['mobileNo'].errors['required']">Mobile number is required</div>
+          <div *ngIf="c['mobileNo'].errors['pattern']">Invalid mobile number</div>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-primary">Sign Up</button>
+    </form>
+  </div>

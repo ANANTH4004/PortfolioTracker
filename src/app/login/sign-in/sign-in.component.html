@@ -1,42 +1,77 @@
 
-<div class="login-form">
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="login-form wrapper">
+  <div class="logo">
+    <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
+</div>
+<div class="text-center mt-4 name">
+    Login Form
+</div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-3 mt-3">
       <div class="cendiv">
-    <div class="form-group">
-      <label>Email</label>
+    <div class="form-field  align-items-center">
       <input
         type="text"
         formControlName="email"
-        class="form-control"
-        [ngClass]=" {'is-invalid': this.loginForm.controls.email.invalid && this.loginForm.controls.email.dirty}"
-      />
-      <div *ngIf="f['email'].errors" class="invalid-feedback">
-        <div *ngIf="f['email'].errors['required']">Email is required</div>
-        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
-      </div>
+        class="form-control" placeholder="Email"
+         />
+    </div>
+    <div *ngIf="f['email'].errors" class="invalid-feedback">
+      <div *ngIf="f['email'].errors['required']">Email is required</div>
+      <div *ngIf="f['email'].errors['email']">Email is invalid</div>
     </div>
 
-    <div class="form-group">
-      <label>Password</label>
+    <div class="form-field align-items-center">
       <input
         type="password"
         formControlName="password"
         class="form-control"
+        placeholder="Password"
         [ngClass]="{ 'is-invalid': f['password'].dirty && f['password'].errors }"
       />
-      <div *ngIf=" f['password'].errors" class="invalid-feedback">
-        <div *ngIf="f['password'].errors['required']">Password is required</div>
-        <div *ngIf="f['password'].errors['minlength']">
+      <div *ngIf=" f['password'].errors" class="invalid-feedback" >
+        <span *ngIf="f['password'].errors['required']">Password is required</span>
+        <span *ngIf="f['password'].errors['minlength']">
           Password must be at least 6 characters
-        </div>
+        </span>
         <div *ngIf="f['password'].errors['maxlength']">
           Password must not exceed 20 characters
         </div>
       </div>
     </div>
+ 
     <div style="justify-content: center;align-items: center;" class="form-group">
       <button  type="submit" [disabled]="!loginForm.valid"  class="btn btn-primary">Register</button>
+    </div>
+    <div style="justify-content: center;align-items: center;" class="form-group">
+      <button   class="btn btn-primary">Login With Gmail</button>
     </div>
   </div>
   </form>
 </div>
+<!-- <div class="wrapper">
+  <div class="logo">
+      <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
+  </div>
+  <div class="text-center mt-4 name">
+      Twitter
+  </div>
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="p-3 mt-3">
+      <div class="form-field d-flex align-items-center">
+          <span class="far fa-user"></span>
+          <input type="text"  formControlName="email" name="email" id="email" placeholder="Email" 
+          [ngClass]=" {'is-invalid': this.loginForm.controls.email.invalid && this.loginForm.controls.email.dirty}">
+      </div>
+      <div *ngIf="f['email'].errors" class="invalid-feedback">
+        <div *ngIf="f['email'].errors['required']">Email is required</div>
+        <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+      </div>
+      <div class="form-field d-flex align-items-center">
+          <span class="fas fa-key"></span>
+          <input type="password" name="password" id="pwd" placeholder="Password">
+      </div>
+      <button class="btn mt-3">Login</button>
+  </form>
+  <div class="text-center fs-6">
+      <a href="#">Forget password?</a> or <a href="#">Sign up</a>
+  </div>
+</div> -->
