@@ -1,4 +1,4 @@
-
+<!-- 
 <div class="login-form wrapper">
   <div class="logo">
     <img src="https://www.freepnglogos.com/uploads/twitter-logo-png/twitter-bird-symbols-png-logo-0.png" alt="">
@@ -74,4 +74,56 @@
   <div class="text-center fs-6">
       <a href="#">Forget password?</a> or <a href="#">Sign up</a>
   </div>
-</div> -->
+</div> --> 
+
+
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login">
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" formControlName="email" class="login__input" placeholder="Email"[ngClass]="{ 'is-invalid': f['email'].dirty && f['email'].errors }">
+          <div *ngIf="f['email'].errors" class="invalid-feedback">
+            <div *ngIf="f['email'].errors['required']">Email is required</div>
+            <div *ngIf="f['email'].errors['email']">Email is invalid</div>
+          </div>
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" formControlName="password" class="login__input" 
+              placeholder="Password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                   title="Must contain at least one number and one uppercase and lowercase letter, and at least 8 or more characters" 
+                   [ngClass]="{ 'is-invalid': f['password'].dirty && f['password'].errors }" required>
+      <div *ngIf=" f['password'].errors" class="invalid-feedback" >
+        <span *ngIf="f['password'].errors['required']">Password is required</span>
+        <span *ngIf="f['password'].errors['minlength']">
+          Password must be at least 6 characters
+        </span>
+        <div *ngIf="f['password'].errors['maxlength']">
+          Password must not exceed 20 characters
+        </div>
+      </div>
+				</div>
+				<button class="button login__submit">
+					<span class="button__text">Log In Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<h3>log in via</h3>
+				<div class="social-icons">
+					<a href="#" class="social-login__icon fab fa-instagram "></a>
+					<a href="#" class="social-login__icon fab fa-facebook"></a>
+					<a href="#" class="social-login__icon fab fa-twitter"></a>
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>

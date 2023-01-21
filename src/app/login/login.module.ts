@@ -13,13 +13,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatCardModule} from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
+import { LoginComComponent } from './login-com/login-com.component';
 
 
 
 @NgModule({
   declarations: [
     SignInComponent,
-    SignUpComponent
+    SignUpComponent,
+    LoginComComponent
   ],
   imports: [
     LoginRoutingModule,

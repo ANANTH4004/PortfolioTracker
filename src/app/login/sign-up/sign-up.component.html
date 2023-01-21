@@ -11,7 +11,7 @@
 </div>
     <form [formGroup]="signUp" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="userName">Username</label>&nbsp;<mat-icon>home</mat-icon>
+        <label for="userName">Username</label>
         <input type="text" class="form-control" id="userName" formControlName="userName" [ngClass]="{'is-invalid': c['userName'].touched && c['userName'].errors}">
         <div *ngIf="c['userName'].touched && c['userName'].errors" class="invalid-feedback">
           <div *ngIf="c['userName'].errors['required']">Username is required</div>
@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>&nbsp;<mat-icon>password</mat-icon>
+        <label for="password">Password</label>
         <input type="password" class="form-control" id="password" formControlName="password" [ngClass]="{'is-invalid': c['password'].touched && c['password'].errors}">
         <div *ngIf="c['password'].touched && c['password'].errors" class="invalid-feedback">
           <div *ngIf="c['password'].errors['required']">Password is required</div>
@@ -27,7 +27,7 @@
         </div>
       </div>
       <div class="form-group">
-        <div> <label for="email">Email </label>&nbsp;<mat-icon>email</mat-icon>
+        <div> <label for="email">Email </label>
         </div>
           <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="{'is-invalid': c['email'].touched && c['email'].errors}">
        
@@ -37,7 +37,7 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="mobileNo">Mobile Number</label>&nbsp;<mat-icon class='material-icons'>phone</mat-icon>
+        <label for="mobileNo">Mobile Number</label>
         <input type="text" class="form-control" id="mobileNo" formControlName="mobileNo" [ngClass]="{'is-invalid': c['mobileNo'].touched && c['mobileNo'].errors}">
         <div *ngIf="c['mobileNo'].touched && c['mobileNo'].errors" class="invalid-feedback">
           <div *ngIf="c['mobileNo'].errors['required']">Mobile number is required</div>
