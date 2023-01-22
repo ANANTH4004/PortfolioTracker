@@ -1,0 +1,36 @@
+
+---------------------- login code ---------------------------------------------
+(window).onload = () => {
+    // @ts-ignore
+    google.accounts.id.initialize({
+      client_id: environment.clientId,
+      callback: this.handleCredentialResponse.bind(this),
+      auto_select: false,
+      cancel_on_tap_outside: true
+    });
+    // @ts-ignore
+    google.accounts.id.renderButton(
+    // @ts-ignore
+    document.getElementById("buttonDiv"),
+      { theme: 'filled_black', size: "large", width: "100%" } 
+    );
+    // @ts-ignore
+    google.accounts.id.prompt((notification: PromptMomentNotification) => {});
+  };
+}
+
+async handleCredentialResponse(response: CredentialResponse) {
+  debugger;
+  await this.service.LoginWithGoogle(response.credential).subscribe(
+    (x:any) => {
+      debugger;
+      localStorage.setItem("token", x.token);
+      this._ngZone.run(() => {
+        this.router.navigate(['/logout']);
+      })},
+    (error:any) => {
+        console.log(error);
+      }
+    );  
+
+--------------------------------------------------------------------------------------------------------

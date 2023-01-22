@@ -14,6 +14,7 @@ import {MatCardModule} from '@angular/material/card'
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { LoginComComponent } from './login-com/login-com.component';
+import { LogoutComponent } from './logout/logout.component';
 
 
 
@@ -21,7 +22,8 @@ import { LoginComComponent } from './login-com/login-com.component';
   declarations: [
     SignInComponent,
     SignUpComponent,
-    LoginComComponent
+    LoginComComponent,
+    LogoutComponent
   ],
   imports: [
     LoginRoutingModule,
