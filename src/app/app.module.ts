@@ -11,6 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {HttpClientModule} from '@angular/common/http';
 import { HomeComponent } from './home/home.component'
 import { MaterialModule } from './Material/material.module';
+import { AuthService } from './Services/auth.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { MaterialModule } from './Material/material.module';
     MaterialModule
  
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

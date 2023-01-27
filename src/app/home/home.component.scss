@@ -132,21 +132,17 @@ button.mat-button {
 .tableDiv{
     display: flex;
     justify-content: center;
-    margin-top: 5%;
+    margin-top: 2%;
+    padding: 2%;
  
 }
+
 table {
     border-collapse: collapse;
     width: 100%;
-    /* Add some padding */
-    padding: 12px;
-    /* Add some border */
-    border: 2px solid #ccc;
-    /* Add some border radius */
+    border: 2px solid rgb(209, 202, 202);
     border-radius: 4px;
-    /* Add some box shadow */
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
-   
 }
 
 th, td {

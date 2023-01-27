@@ -38,9 +38,11 @@ ngOnInit(): void {
         [this.data.market_cap_rank, this.data.name, this.data.market_data.current_price.usd, this.data.market_data.price_change_percentage_1h_in_currency.usd,
            this.data.market_data.price_change_percentage_24h, this.data.market_data.price_change_percentage_7d, this.data.market_data.price_change_percentage_30d, this.data.market_data.total_supply, this.data.last_updated, 'Buy/Sell/Hold']
       ];
+
+      
       this.dataArray.push(coin)
   
-     // console.log(this.data)
+     
   });
   }
 
