@@ -19,7 +19,6 @@ export class AuthService {
 
   login(userName : string , password : string):Observable<TokenParams | null>{
     var headersForAPI = new HttpHeaders({'Content-Type' : 'application/json'});
-    //var data ="UserName="+userName+"&Password="+password;
     const params = new HttpParams()
     .set('UserName', userName)
     .set('Password', password);

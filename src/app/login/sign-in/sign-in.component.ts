@@ -43,8 +43,10 @@ export class SignInComponent {
   const userName = this.loginForm.get('email')?.value
   this.auth.login(userName,password).subscribe(
     data =>{
+      debugger
       console.log(data);
       this.tokenParams = data;
+      localStorage.setItem('token', data.token)
       this.auth.accesToken = this.tokenParams.token;
       this.router.navigate(['/home'])
     }
