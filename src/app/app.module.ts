@@ -8,10 +8,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import {HttpClientModule} from '@angular/common/http';
+import {HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http';
 import { HomeComponent } from './home/home.component'
 import { MaterialModule } from './Material/material.module';
 import { AuthService } from './Services/auth.service';
+import { HeaderInterceptor } from './Services/header.interceptor';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,13 @@ import { AuthService } from './Services/auth.service';
     MaterialModule
  
   ],
-  providers: [AuthService],
+  providers: [
+    AuthService,
+    {
+      provide : HTTP_INTERCEPTORS, useClass : HeaderInterceptor, multi: true
+    }
+    
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
