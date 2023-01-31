@@ -27,6 +27,14 @@
         </div>
       </div>
       <div class="form-group">
+        <label for="confimPassword">Confirm Password</label>
+        <input type="text" class="form-control" id="confirmpassword" formControlName="confirmPassword" [ngClass]="{'is-invalid': c['confirmPassword'].touched && c['confirmPassword'].errors}">
+        <div *ngIf="c['confirmPassword'].touched && c['confirmPassword'].errors" class="invalid-feedback">
+          <div *ngIf="c['confirmPassword'].errors['required']">Password is required</div>
+          <div *ngIf="c['confirmPassword'].errors['pattern']">Password should contain at least 1 letter, 1 number, and 1 special character</div>
+        </div>
+      </div>
+      <div class="form-group">
         <div> <label for="email">Email </label>
         </div>
           <input type="email" class="form-control" id="email" formControlName="email" [ngClass]="{'is-invalid': c['email'].touched && c['email'].errors}">
