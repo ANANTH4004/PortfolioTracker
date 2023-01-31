@@ -38,7 +38,10 @@ ngOnInit(): void {
 
 createPortfolio(){
  const popUp = this.pop.open(CreatePortfolioComponent,{ 
-  width: '30%'
+  width: '30%',
+  data :{
+    userName: "varun"
+  }
  })
 }
 

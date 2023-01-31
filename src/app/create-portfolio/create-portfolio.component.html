@@ -1,17 +1,14 @@
 
 <div class="container">
-   
         <h1 mat-dialog-title>Create New Portfolio</h1>
-   
-
 <div mat-dialog-content class="centent">
     <p>Enter Portfolio Name</p>
     <mat-form-field >
-        <input matInput placeholder="My Portfolio">
+        <input matInput [(ngModel)]="portName" placeholder="My Portfolio">
       </mat-form-field>
 </div>
 <div mat-dialog-actions class="action">
-    <button mat-raised-button color="primary">Submit</button>
+    <button mat-raised-button color="primary" (click)="createPortfolio()">Submit</button>
     <button mat-raised-button color="warn" mat-dialog-close="">Cancel</button>
   </div>
 </div>
