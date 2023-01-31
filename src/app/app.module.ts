@@ -13,11 +13,13 @@ import { HomeComponent } from './home/home.component'
 import { MaterialModule } from './Material/material.module';
 import { AuthService } from './Services/auth.service';
 import { HeaderInterceptor } from './Services/header.interceptor';
+import { CreatePortfolioComponent } from './create-portfolio/create-portfolio.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    CreatePortfolioComponent
   ],
   imports: [
     LoginModule,

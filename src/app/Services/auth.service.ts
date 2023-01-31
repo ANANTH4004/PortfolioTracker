@@ -15,16 +15,9 @@ export class AuthService {
   accesToken: string = "";
   private TokenAPI = "https://localhost:7054/login"
   constructor(private http : HttpClient) { }
-
-
   login(userName : string , password : string):Observable<TokenParams | null>{
-    var headersForAPI = new HttpHeaders({'Content-Type' : 'application/json'});
-    const params = new HttpParams()
-    .set('UserName', userName)
-    .set('Password', password);
     const data = {'username': userName, 'password': password};
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
-    console.log(JSON.stringify(params))
     return this.http.post<TokenParams | null>(this.TokenAPI ,data ,config
     );
 }

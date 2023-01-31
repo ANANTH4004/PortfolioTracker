@@ -1,8 +1,10 @@
 import { JsonPipe } from '@angular/common';
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
+import { CreatePortfolioComponent } from '../create-portfolio/create-portfolio.component';
 import { Root } from '../Interface';
 import { CoinService } from '../Services/coin.service';
 
@@ -13,9 +15,12 @@ import { CoinService } from '../Services/coin.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit{
+  constructor(private coinService : CoinService , private pop : MatDialog){}
+
   data !: Root
   coin: any;
   totalBalance : number = 2000;
+  
   options = [
     {value: 'option1', name: 'Option 1'},
     {value: 'option2', name: 'Option 2'},
@@ -23,13 +28,20 @@ export class HomeComponent implements OnInit{
   ];
   selectedOption = 'option1';
   data1 !: (string | number)[][];
-  constructor(private coinService : CoinService){}
+
   coinName = ['cardano' , 'bitcoin' , 'ripple' , 'ethereum','coin','vechain','dogecoin'];
  dataArray !: any[];
 ngOnInit(): void {
   this.getData();
  
 }
+
+createPortfolio(){
+ const popUp = this.pop.open(CreatePortfolioComponent,{ 
+  width: '30%'
+ })
+}
+
 
 getData(){
   this.dataArray = [];
