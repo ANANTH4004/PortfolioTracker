@@ -7,6 +7,7 @@ import { concatWith, Observable } from 'rxjs';
 import { portfolio } from '../Classes/model';
 import { CreatePortfolioComponent } from '../create-portfolio/create-portfolio.component';
 import { Root } from '../Interface';
+import { SearchComponent } from '../search/search.component';
 import { CoinService } from '../Services/coin.service';
 import { DataService } from '../Services/data.service';
 
@@ -37,16 +38,16 @@ export class HomeComponent implements OnInit{
  portfolioNames !: any[];
 
 ngOnInit(): void {
-  this.getPortfolios();
+  // this.getPortfolios();
   this.getData();
-  setTimeout(() => {
-    console.log(this.portfolioNames);
-    this.options = this.portfolioNames;
-    this.selectedOption = this.portfolioNames.at(1)
-  }, 1000);
+  // setTimeout(() => {
+  //   console.log(this.portfolioNames);
+  //   this.options = this.portfolioNames;
+  //   this.selectedOption = this.portfolioNames.at(0)
+  // }, 1000);
 }
 getPortfolios() : any{
-  this.dataService.getPortfolio("varun").subscribe(data =>{
+  this.dataService.getPortfolio("kamal").subscribe(data =>{
     console.log(data);
     this.portfolio = data ;
     this.portfolioNames = this.portfolio.map(portfolio => portfolio.portfolioName);
@@ -63,6 +64,10 @@ createPortfolio(){
     userName: "varun"
   }
  })
+}
+
+addCoin(){
+  const search = this.pop.open(SearchComponent)
 }
 
 

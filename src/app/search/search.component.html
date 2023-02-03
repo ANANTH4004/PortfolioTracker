@@ -1,0 +1,31 @@
+
+<mat-form-field class="search-bar">
+  <input matInput type="text" placeholder="Search coins" [(ngModel)]="searchTerm" (keyup)="filterCoins()" [matMenuTriggerFor]="suggestions">
+  <mat-icon matSuffix>search</mat-icon>
+  <mat-menu #suggestions="matMenu">
+    <ng-template matMenuContent>
+      <mat-list role="list">
+        <mat-list-item *ngFor="let coin of filteredCoins" (click)="selectCoin(coin)">
+          {{ coin.name }}
+        </mat-list-item>
+      </mat-list>
+    </ng-template>
+  </mat-menu>
+</mat-form-field>
+
+
+
+<table class="coin-list">
+  <thead>
+    <tr>
+      <th>Rank</th>
+      <th>Name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let coin of filteredCoins" (click)="selectCoin1(coin)">
+      <td>{{ coin.rank }}</td>
+      <td>{{ coin.name }} /td>
+    </tr>
+  </tbody>
+</table>

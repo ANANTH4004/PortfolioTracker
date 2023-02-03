@@ -14,12 +14,16 @@ import { MaterialModule } from './Material/material.module';
 import { AuthService } from './Services/auth.service';
 import { HeaderInterceptor } from './Services/header.interceptor';
 import { CreatePortfolioComponent } from './create-portfolio/create-portfolio.component';
+import { SearchComponent } from './search/search.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    CreatePortfolioComponent
+    CreatePortfolioComponent,
+    SearchComponent,
+   
   ],
   imports: [
     LoginModule,

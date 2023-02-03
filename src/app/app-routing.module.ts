@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 
 import { SignInComponent } from './login/sign-in/sign-in.component';
 import { SignUpComponent } from './login/sign-up/sign-up.component';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
 
