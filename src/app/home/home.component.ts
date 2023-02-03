@@ -3,7 +3,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
-import { Observable } from 'rxjs';
+import { concatWith, Observable } from 'rxjs';
 import { portfolio } from '../Classes/model';
 import { CreatePortfolioComponent } from '../create-portfolio/create-portfolio.component';
 import { Root } from '../Interface';
@@ -34,21 +34,26 @@ export class HomeComponent implements OnInit{
   coinName = ['cardano' , 'bitcoin' , 'ripple','coin','vechain','dogecoin'];
  dataArray !: any[];
  portfolio!: portfolio[];
-
+ portfolioNames !: any[];
 
 ngOnInit(): void {
+  this.getPortfolios();
   this.getData();
-  this.getPortfolios()
- 
+  setTimeout(() => {
+    console.log(this.portfolioNames);
+    this.options = this.portfolioNames;
+    this.selectedOption = this.portfolioNames.at(1)
+  }, 1000);
 }
-
-getPortfolios(){
+getPortfolios() : any{
   this.dataService.getPortfolio("varun").subscribe(data =>{
-    
     console.log(data);
     this.portfolio = data ;
+    this.portfolioNames = this.portfolio.map(portfolio => portfolio.portfolioName);
+    console.log(this.portfolioNames);
+    return this.portfolioNames
+  });
 
-  })
 }
 
 createPortfolio(){

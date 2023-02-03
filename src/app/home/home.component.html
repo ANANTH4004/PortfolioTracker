@@ -2,8 +2,8 @@
     <div class="left-container">
       <mat-form-field>
         <mat-select [(value)]="selectedOption">
-          <mat-option *ngFor="let option of options" [value]="option.value">
-            {{ option.name }}
+          <mat-option *ngFor="let option of options" [value]="option">
+            {{ option }}
           </mat-option>
         </mat-select>
       </mat-form-field>
