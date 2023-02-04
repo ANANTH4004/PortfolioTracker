@@ -1,31 +1,29 @@
 
-<mat-form-field class="search-bar">
-  <input matInput type="text" placeholder="Search coins" [(ngModel)]="searchTerm" (keyup)="filterCoins()" [matMenuTriggerFor]="suggestions">
-  <mat-icon matSuffix>search</mat-icon>
-  <mat-menu #suggestions="matMenu">
+<div class="search-bar">
+  <input matInput mat-dialog-title  type="text" placeholder="Search coins" [(ngModel)]="searchTerm"
+       (keyup)="filterCoins()" [matMenuTriggerFor]="suggestions">
+  <mat-menu #suggestions="matMenu"  class="menu-content">
     <ng-template matMenuContent>
-      <mat-list role="list">
+      <mat-list mat-dialog-content role="list">
         <mat-list-item *ngFor="let coin of filteredCoins" (click)="selectCoin(coin)">
-          {{ coin.name }}
+          {{ coin.name }} {{coin.symbol}}
         </mat-list-item>
       </mat-list>
     </ng-template>
   </mat-menu>
-</mat-form-field>
+</div>
 
 
 
-<table class="coin-list">
-  <thead>
-    <tr>
-      <th>Rank</th>
-      <th>Name</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let coin of filteredCoins" (click)="selectCoin1(coin)">
-      <td>{{ coin.rank }}</td>
-      <td>{{ coin.name }} /td>
-    </tr>
-  </tbody>
-</table>
+ <!-- <div class="search-bar">
+  <input type="text" placeholder="Search coins" [(ngModel)]="searchTerm" (keyup)="filterCoins()" [matMenuTriggerFor]="suggestions">
+  <mat-menu #suggestions="matMenu">
+    <ng-template matMenuContent>
+      <ul class="suggestions">
+        <li *ngFor="let coin of filteredCoins" (click)="selectCoin(coin)">
+          {{ coin.name }}
+        </li>
+      </ul>
+    </ng-template>
+  </mat-menu>
+</div> -->

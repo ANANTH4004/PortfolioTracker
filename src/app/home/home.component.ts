@@ -39,7 +39,7 @@ export class HomeComponent implements OnInit{
 
 ngOnInit(): void {
   // this.getPortfolios();
-  this.getData();
+ // this.getData();
   // setTimeout(() => {
   //   console.log(this.portfolioNames);
   //   this.options = this.portfolioNames;
@@ -67,7 +67,10 @@ createPortfolio(){
 }
 
 addCoin(){
-  const search = this.pop.open(SearchComponent)
+  const search = this.pop.open(SearchComponent,{
+    width :'40%',
+    position: { top: '5%' }
+  })
 }
 
 
