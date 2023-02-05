@@ -14,4 +14,15 @@ export interface portfolio {
     userName: string
     user: any
   }
+
+  export interface Coin {
+    coinId: string
+    coinName: string
+    totalCoins: number
+    totalBuyingPrice: number
+    transactions: any
+    portfolioId: string
+    portfolio: any
+  }
+  
   

@@ -4,7 +4,7 @@ import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 import { MatTableModule } from '@angular/material/table';
 import { MatTableDataSource } from '@angular/material/table';
 import { concatWith, Observable } from 'rxjs';
-import { portfolio } from '../Classes/model';
+import { Coin, portfolio } from '../Classes/model';
 import { CreatePortfolioComponent } from '../create-portfolio/create-portfolio.component';
 import { Root } from '../Interface';
 import { SearchComponent } from '../search/search.component';
@@ -32,12 +32,14 @@ export class HomeComponent implements OnInit{
   selectedOption = 'option1';
   data1 !: (string | number)[][];
 
-  coinName = ['cardano' , 'bitcoin' , 'ripple','coin','vechain','dogecoin'];
+coinName = ['cardano' , 'bitcoin' , 'ripple','coin','vechain','dogecoin'];
  dataArray !: any[];
  portfolio!: portfolio[];
  portfolioNames !: any[];
-
+ coinsDetails : any;
+ portfolioId : string;
 ngOnInit(): void {
+  this.portfolioId = "5f3409eb-5bea-4443-ea83-08db02d30646"
   // this.getPortfolios();
  // this.getData();
   // setTimeout(() => {
@@ -45,6 +47,14 @@ ngOnInit(): void {
   //   this.options = this.portfolioNames;
   //   this.selectedOption = this.portfolioNames.at(0)
   // }, 1000);
+   this.dataService.getCoins(this.portfolioId).subscribe(data =>{
+    console.log(data);
+    this.coinsDetails = data;
+  })
+  setTimeout(() => {
+    console.log(this.coinsDetails);
+  }, 2000);
+  
 }
 getPortfolios() : any{
   this.dataService.getPortfolio("kamal").subscribe(data =>{
