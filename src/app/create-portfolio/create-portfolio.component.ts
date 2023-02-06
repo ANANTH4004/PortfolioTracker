@@ -18,6 +18,7 @@ export class CreatePortfolioComponent {
     const data = {'portfolioName' : this.portName , 'userName': this.userName};
     this.auth.createPortfolio(data).subscribe(d =>{
       console.log(d);
+      
     })
   }
 }

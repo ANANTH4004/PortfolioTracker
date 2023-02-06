@@ -21,4 +21,10 @@ export class DataService {
     const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
     return this.http.get<Coin[] | null>(apiUri ,config);
   }
+
+  getPortfolioById(id : string): Observable<portfolio | null>{
+    const apiUri = `https://localhost:7054/api/Portfolios/${id}`
+    const config = { headers: new HttpHeaders().set('Content-Type', 'application/json') };
+    return this.http.get<portfolio | null>(apiUri ,config);
+  }
 }
